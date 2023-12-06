@@ -15,7 +15,7 @@ git config --global user.email "wanluoliang@126.com"
 git config --global user.name "wankaiming"
 
 
-git clone --progress --branch main -v --depth 1 "https://github.com/wankaiming/kiwibrowser-ccache-arm64.git" $HOME/cache
+git clone --progress --branch main -v --depth 1 "https://github.com/aboutboy/kiwibrowser-ccache-arm64.git" $HOME/cache
 
 
 mkdir -p $HOME/.ccache/
@@ -38,7 +38,7 @@ export DEPOT_TOOLS_DIR=$PWD/depot_tools
 export PATH=$DEPOT_TOOLS_DIR:$DEPOT_TOOLS_DIR/python2_bin:$DEPOT_TOOLS_DIR/python_bin:$PATH
 
 
-git clone --depth 1 "https://github.com/wankaiming/dependencies.git" .cipd
+git clone --depth 1 "https://github.com/aboutboy/dependencies.git" .cipd
 cp .cipd/.gclient .
 cp .cipd/.gclient_entries .
 
@@ -46,7 +46,7 @@ cp .cipd/.gclient_entries .
 sudo apt-get update
 sudo apt-get install -y python openjdk-8-jdk-headless libncurses5 ccache
 sudo update-java-alternatives --set java-1.8.0-openjdk-amd64
-git clone --depth 1 "https://github.com/wankaiming/kiwibrowser-src.git" src
+git clone --depth 1 "https://github.com/aboutboy/src.next.git" src
 cd src
 curl "https://omahaproxy.appspot.com/all" | grep -Fi "android,stable" | cut -f3 -d"," | awk '{split($0,a,"."); print "MAJOR=" a[1] "\nMINOR=" a[2] "\nBUILD=" a[3] "\nPATCH=" a[4]}' > chrome/VERSION
 sudo bash install-build-deps.sh --no-chromeos-fonts
